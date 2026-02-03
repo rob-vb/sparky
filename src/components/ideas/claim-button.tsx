@@ -19,7 +19,7 @@ export function ClaimButton({ initialCount }: ClaimButtonProps) {
     setClaimed(true);
 
     toast.success("You claimed this idea!", {
-      description: "Now go build it. We're rooting for you.",
+      description: "Now go build it.",
     });
   };
 
@@ -27,24 +27,24 @@ export function ClaimButton({ initialCount }: ClaimButtonProps) {
     <button
       onClick={handleClaim}
       disabled={claimed}
-      className={`inline-flex items-center gap-2 px-6 py-3 font-bold border-2 transition-all ${
+      className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-bold transition-colors cursor-pointer ${
         claimed
-          ? 'bg-secondary/20 text-secondary border-secondary cursor-default'
-          : 'bg-primary text-background border-primary glow-yellow hover:bg-primary/90'
+          ? 'bg-muted text-muted-foreground'
+          : 'bg-primary text-primary-foreground hover:opacity-90'
       }`}
     >
       {claimed ? (
         <>
-          <Check className="w-5 h-5" />
-          <span>Claimed!</span>
+          <Check className="w-4 h-4" />
+          <span>Claimed</span>
         </>
       ) : (
         <>
-          <Zap className="w-5 h-5" />
+          <Zap className="w-4 h-4" />
           <span>I&apos;m Building This</span>
         </>
       )}
-      <span className="ml-1 px-2 py-0.5 bg-background/20 text-sm">
+      <span className="ml-1 text-xs opacity-70">
         {count}
       </span>
     </button>

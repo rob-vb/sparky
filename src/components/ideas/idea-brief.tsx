@@ -9,111 +9,93 @@ interface IdeaBriefProps {
 
 export function IdeaBrief({ idea }: IdeaBriefProps) {
   return (
-    <article className="max-w-3xl mx-auto">
+    <article className="max-w-2xl mx-auto">
       {/* Header */}
       <header className="mb-12">
-        <div className="flex items-center gap-4 mb-6">
-          <span className="font-display text-6xl md:text-7xl font-black text-primary">
-            #{String(idea.ideaNumber).padStart(3, '0')}
-          </span>
-        </div>
+        <span className="font-display text-4xl font-black text-primary">
+          #{String(idea.ideaNumber).padStart(3, '0')}
+        </span>
 
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 leading-tight">
+        <h1 className="text-2xl md:text-3xl font-black mt-4 mb-4 leading-tight">
           {idea.title}
         </h1>
 
-        <p className="text-muted-foreground mb-8">
-          Published{' '}
+        <p className="text-sm text-muted-foreground mb-6">
           {new Date(idea.publishedAt).toLocaleDateString('en-US', {
-            weekday: 'long',
             month: 'long',
             day: 'numeric',
             year: 'numeric',
           })}
         </p>
 
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-wrap items-center gap-3">
           <ClaimButton initialCount={idea.claimsCount} />
           <ShareButtons idea={idea} />
         </div>
       </header>
 
       {/* The Problem */}
-      <section className="mb-12">
-        <div className="flex items-center gap-4 mb-4">
-          <span className="font-display text-xs font-bold tracking-wider text-secondary uppercase">
-            01
-          </span>
-          <h2 className="font-display text-2xl font-bold">The Problem</h2>
+      <section className="mb-10">
+        <div className="flex items-center gap-3 mb-3">
+          <span className="text-xs font-bold text-primary">01</span>
+          <h2 className="text-lg font-bold">The Problem</h2>
         </div>
-        <div className="pl-8 border-l-2 border-secondary/50">
-          <p className="text-lg leading-relaxed text-muted-foreground">{idea.problemStatement}</p>
-        </div>
+        <p className="text-muted-foreground leading-relaxed">{idea.problemStatement}</p>
       </section>
 
       {/* Who Wants This */}
-      <section className="mb-12">
-        <div className="flex items-center gap-4 mb-4">
-          <span className="font-display text-xs font-bold tracking-wider text-secondary uppercase">
-            02
-          </span>
-          <h2 className="font-display text-2xl font-bold">Who Wants This</h2>
+      <section className="mb-10">
+        <div className="flex items-center gap-3 mb-3">
+          <span className="text-xs font-bold text-primary">02</span>
+          <h2 className="text-lg font-bold">Who Wants This</h2>
         </div>
-        <div className="pl-8 border-l-2 border-secondary/50">
-          <p className="text-lg leading-relaxed text-muted-foreground">{idea.targetAudience}</p>
-        </div>
+        <p className="text-muted-foreground leading-relaxed">{idea.targetAudience}</p>
       </section>
 
       {/* What Exists */}
-      <section className="mb-12">
-        <div className="flex items-center gap-4 mb-4">
-          <span className="font-display text-xs font-bold tracking-wider text-secondary uppercase">
-            03
-          </span>
-          <h2 className="font-display text-2xl font-bold">What Exists (And Where It Falls Short)</h2>
+      <section className="mb-10">
+        <div className="flex items-center gap-3 mb-3">
+          <span className="text-xs font-bold text-primary">03</span>
+          <h2 className="text-lg font-bold">What Exists</h2>
         </div>
-        <div className="space-y-4 mt-6">
+        <div className="space-y-4">
           {idea.existingSolutions.map((solution, index) => (
-            <div key={index} className="border border-border p-6 bg-card">
-              <h3 className="font-display text-lg font-bold mb-2">{solution.name}</h3>
-              <p className="text-muted-foreground mb-3">
+            <div key={index} className="border border-border p-4">
+              <h3 className="font-bold mb-1">{solution.name}</h3>
+              <p className="text-sm text-muted-foreground mb-2">
                 {solution.description}
               </p>
-              <div className="inline-block px-3 py-1 bg-destructive/10 border border-destructive/30 text-destructive text-sm font-medium">
+              <span className="text-xs text-destructive">
                 Gap: {solution.gap}
-              </div>
+              </span>
             </div>
           ))}
         </div>
       </section>
 
       {/* Suggested MVP */}
-      <section className="mb-12">
-        <div className="flex items-center gap-4 mb-4">
-          <span className="font-display text-xs font-bold tracking-wider text-secondary uppercase">
-            04
-          </span>
-          <h2 className="font-display text-2xl font-bold">Suggested MVP</h2>
+      <section className="mb-10">
+        <div className="flex items-center gap-3 mb-3">
+          <span className="text-xs font-bold text-primary">04</span>
+          <h2 className="text-lg font-bold">Suggested MVP</h2>
         </div>
-        <div className="border border-primary/30 bg-primary/5 p-6 md:p-8">
-          <pre className="font-mono text-sm whitespace-pre-wrap leading-relaxed text-foreground">
+        <div className="border border-border p-4 bg-card">
+          <pre className="font-mono text-sm whitespace-pre-wrap leading-relaxed text-muted-foreground">
             {idea.suggestedMvp}
           </pre>
         </div>
       </section>
 
       {/* Signal Sources */}
-      <section className="mb-12">
-        <div className="flex items-center gap-4 mb-4">
-          <span className="font-display text-xs font-bold tracking-wider text-secondary uppercase">
-            05
-          </span>
-          <h2 className="font-display text-2xl font-bold">Signal Sources</h2>
+      <section className="mb-10">
+        <div className="flex items-center gap-3 mb-3">
+          <span className="text-xs font-bold text-primary">05</span>
+          <h2 className="text-lg font-bold">Signal Sources</h2>
         </div>
-        <p className="text-muted-foreground mb-6">
-          These are the real conversations and posts that sparked this idea.
+        <p className="text-sm text-muted-foreground mb-4">
+          Real conversations that sparked this idea.
         </p>
-        <div className="space-y-4">
+        <div className="space-y-3">
           {idea.signalSources.map((source, index) => (
             <SignalSource key={index} source={source} />
           ))}

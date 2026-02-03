@@ -29,7 +29,7 @@ export function EmailForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col sm:flex-row gap-3 w-full max-w-md"
+      className="flex flex-col sm:flex-row gap-2 w-full max-w-sm"
     >
       <input
         type="email"
@@ -37,18 +37,15 @@ export function EmailForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         disabled={isLoading}
-        className="flex-1 px-4 py-3 bg-background text-foreground border border-border placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+        className="flex-1 px-4 py-2 bg-transparent border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
       />
       <button
         type="submit"
         disabled={isLoading}
-        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-colors disabled:opacity-50 glow-yellow"
+        className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-bold hover:opacity-90 transition-opacity disabled:opacity-50 cursor-pointer"
       >
         {isLoading ? (
-          <>
-            <Loader2 className="h-4 w-4 animate-spin" />
-            <span>Joining...</span>
-          </>
+          <Loader2 className="h-4 w-4 animate-spin" />
         ) : (
           <>
             <span>Subscribe</span>
