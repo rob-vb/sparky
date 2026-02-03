@@ -8,18 +8,27 @@ export const metadata = {
 
 export default function IdeasPage() {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">All Ideas</h1>
-        <p className="text-muted-foreground">
-          Browse our archive of validated startup ideas
-        </p>
-      </div>
+    <div className="py-12 md:py-20">
+      <div className="container mx-auto px-4 md:px-8">
+        {/* Header */}
+        <div className="max-w-2xl mb-12">
+          <span className="inline-block font-display text-sm font-bold tracking-wider text-secondary uppercase mb-4">
+            Archive
+          </span>
+          <h1 className="text-4xl md:text-5xl font-black mb-4 leading-tight">
+            All ideas
+          </h1>
+          <p className="text-lg text-muted-foreground">
+            {mockIdeas.length} validated startup ideas. Each one researched, analyzed, and ready to build.
+          </p>
+        </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {mockIdeas.map((idea) => (
-          <IdeaCard key={idea.id} idea={idea} />
-        ))}
+        {/* Grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 animate-stagger">
+          {mockIdeas.map((idea) => (
+            <IdeaCard key={idea.id} idea={idea} />
+          ))}
+        </div>
       </div>
     </div>
   );

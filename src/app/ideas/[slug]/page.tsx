@@ -47,16 +47,18 @@ export default async function IdeaPage({ params }: IdeaPageProps) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <Link
-        href="/ideas"
-        className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-8"
-      >
-        <ArrowLeft className="mr-2 h-4 w-4" />
-        Back to all ideas
-      </Link>
+    <div className="py-12 md:py-20">
+      <div className="container mx-auto px-4 md:px-8">
+        <Link
+          href="/ideas"
+          className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-12 group"
+        >
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+          Back to all ideas
+        </Link>
 
-      <IdeaBrief idea={idea} />
+        <IdeaBrief idea={idea} />
+      </div>
     </div>
   );
 }
