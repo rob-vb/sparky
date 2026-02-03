@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Toaster } from '@/components/ui/sonner';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { SponsorSidebar } from '@/components/shared/sponsor-sidebar';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -19,6 +20,8 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className="min-h-screen flex flex-col">
         <Header />
+        <SponsorSidebar side="left" />
+        <SponsorSidebar side="right" />
         <main className="flex-1">{children}</main>
         <Footer />
         <Toaster />

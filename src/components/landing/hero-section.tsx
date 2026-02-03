@@ -30,10 +30,10 @@ export function HeroSection() {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <Link
-              href="#signup"
+              href="/ideas/invoicesnap-photo-to-expense"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-bold hover:opacity-90 transition-opacity"
             >
-              Get tomorrow&apos;s idea
+              See today&apos;s idea
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
