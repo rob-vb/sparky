@@ -27,10 +27,10 @@ export function ClaimButton({ initialCount }: ClaimButtonProps) {
     <button
       onClick={handleClaim}
       disabled={claimed}
-      className={`inline-flex items-center gap-2 px-6 py-3 font-bold border-3 transition-all ${
+      className={`inline-flex items-center gap-2 px-6 py-3 font-bold border-2 transition-all ${
         claimed
-          ? 'bg-secondary text-secondary-foreground border-secondary cursor-default'
-          : 'bg-primary text-primary-foreground border-foreground shadow-[4px_4px_0_0_#1D3557] hover:shadow-[2px_2px_0_0_#1D3557] hover:translate-x-[2px] hover:translate-y-[2px]'
+          ? 'bg-secondary/20 text-secondary border-secondary cursor-default'
+          : 'bg-primary text-background border-primary glow-yellow hover:bg-primary/90'
       }`}
     >
       {claimed ? (
@@ -44,7 +44,7 @@ export function ClaimButton({ initialCount }: ClaimButtonProps) {
           <span>I&apos;m Building This</span>
         </>
       )}
-      <span className="ml-1 px-2 py-0.5 bg-foreground/10 text-sm rounded">
+      <span className="ml-1 px-2 py-0.5 bg-background/20 text-sm">
         {count}
       </span>
     </button>

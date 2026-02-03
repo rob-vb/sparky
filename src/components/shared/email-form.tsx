@@ -37,12 +37,12 @@ export function EmailForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         disabled={isLoading}
-        className="flex-1 px-4 py-3 bg-background text-foreground border-3 border-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-secondary"
+        className="flex-1 px-4 py-3 bg-background text-foreground border border-border placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
       />
       <button
         type="submit"
         disabled={isLoading}
-        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-foreground text-background font-bold border-3 border-foreground hover:bg-foreground/90 transition-colors disabled:opacity-50"
+        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-colors disabled:opacity-50 glow-yellow"
       >
         {isLoading ? (
           <>

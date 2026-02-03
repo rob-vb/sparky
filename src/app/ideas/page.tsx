@@ -1,4 +1,5 @@
 import { IdeaCard } from '@/components/ideas/idea-card';
+import { SponsorAd } from '@/components/shared/sponsor-ad';
 import { mockIdeas } from '@/lib/mock-data';
 
 export const metadata = {
@@ -23,11 +24,44 @@ export default function IdeasPage() {
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 animate-stagger">
-          {mockIdeas.map((idea) => (
-            <IdeaCard key={idea.id} idea={idea} />
-          ))}
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Main content - Ideas grid */}
+          <div className="flex-1">
+            <div className="grid gap-6 sm:grid-cols-2 animate-stagger">
+              {mockIdeas.map((idea) => (
+                <IdeaCard key={idea.id} idea={idea} />
+              ))}
+            </div>
+
+            {/* Inline sponsor ad after ideas */}
+            <div className="mt-8">
+              <SponsorAd variant="inline" />
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <aside className="lg:w-72 space-y-6">
+            <SponsorAd variant="sidebar" />
+
+            {/* Stats card */}
+            <div className="border border-border bg-card/50 p-4">
+              <div className="text-xs text-muted-foreground uppercase tracking-wider mb-4">
+                Stats
+              </div>
+              <div className="space-y-3">
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Total ideas</span>
+                  <span className="font-bold text-primary">{mockIdeas.length}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Total claims</span>
+                  <span className="font-bold text-secondary">
+                    {mockIdeas.reduce((acc, i) => acc + i.claimsCount, 0)}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </div>

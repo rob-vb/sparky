@@ -46,8 +46,8 @@ export function IdeaBrief({ idea }: IdeaBriefProps) {
           </span>
           <h2 className="font-display text-2xl font-bold">The Problem</h2>
         </div>
-        <div className="pl-8 border-l-3 border-secondary">
-          <p className="text-lg leading-relaxed">{idea.problemStatement}</p>
+        <div className="pl-8 border-l-2 border-secondary/50">
+          <p className="text-lg leading-relaxed text-muted-foreground">{idea.problemStatement}</p>
         </div>
       </section>
 
@@ -59,8 +59,8 @@ export function IdeaBrief({ idea }: IdeaBriefProps) {
           </span>
           <h2 className="font-display text-2xl font-bold">Who Wants This</h2>
         </div>
-        <div className="pl-8 border-l-3 border-secondary">
-          <p className="text-lg leading-relaxed">{idea.targetAudience}</p>
+        <div className="pl-8 border-l-2 border-secondary/50">
+          <p className="text-lg leading-relaxed text-muted-foreground">{idea.targetAudience}</p>
         </div>
       </section>
 
@@ -74,12 +74,12 @@ export function IdeaBrief({ idea }: IdeaBriefProps) {
         </div>
         <div className="space-y-4 mt-6">
           {idea.existingSolutions.map((solution, index) => (
-            <div key={index} className="border-3 border-foreground p-6 bg-card">
+            <div key={index} className="border border-border p-6 bg-card">
               <h3 className="font-display text-lg font-bold mb-2">{solution.name}</h3>
               <p className="text-muted-foreground mb-3">
                 {solution.description}
               </p>
-              <div className="inline-block px-3 py-1 bg-destructive/10 border-2 border-destructive text-destructive text-sm font-medium">
+              <div className="inline-block px-3 py-1 bg-destructive/10 border border-destructive/30 text-destructive text-sm font-medium">
                 Gap: {solution.gap}
               </div>
             </div>
@@ -95,8 +95,8 @@ export function IdeaBrief({ idea }: IdeaBriefProps) {
           </span>
           <h2 className="font-display text-2xl font-bold">Suggested MVP</h2>
         </div>
-        <div className="border-3 border-foreground bg-foreground text-background p-6 md:p-8">
-          <pre className="font-mono text-sm whitespace-pre-wrap leading-relaxed">
+        <div className="border border-primary/30 bg-primary/5 p-6 md:p-8">
+          <pre className="font-mono text-sm whitespace-pre-wrap leading-relaxed text-foreground">
             {idea.suggestedMvp}
           </pre>
         </div>

@@ -30,7 +30,7 @@ export function ProofSection() {
             </p>
             <Link
               href="/ideas"
-              className="inline-flex items-center gap-2 font-bold text-foreground hover:text-secondary transition-colors group"
+              className="inline-flex items-center gap-2 font-bold text-foreground hover:text-primary transition-colors group"
             >
               See all {mockIdea.ideaNumber} ideas
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -39,7 +39,7 @@ export function ProofSection() {
 
           {/* Right - Idea preview */}
           <div className="lg:w-2/3">
-            <article className="border-3 border-foreground bg-card p-6 md:p-10 shadow-[8px_8px_0_0_#1D3557]">
+            <article className="border border-border bg-card p-6 md:p-10 hover:border-primary/30 transition-colors">
               {/* Header */}
               <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
                 <div>
@@ -47,7 +47,7 @@ export function ProofSection() {
                     #{String(mockIdea.ideaNumber).padStart(3, '0')}
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-3 py-1 bg-secondary/20 border-2 border-secondary text-sm font-medium">
+                <div className="flex items-center gap-2 px-3 py-1 bg-secondary/10 border border-secondary/30 text-sm font-medium text-secondary">
                   <TrendingUp className="w-4 h-4" />
                   {totalScore.toLocaleString()} signal points
                 </div>
@@ -63,20 +63,20 @@ export function ProofSection() {
                 <span className="font-display text-xs font-bold tracking-wider text-muted-foreground uppercase">
                   The Problem
                 </span>
-                <p className="mt-2 text-lg leading-relaxed">
+                <p className="mt-2 text-lg leading-relaxed text-muted-foreground">
                   {mockIdea.problemStatement.slice(0, 200)}...
                 </p>
               </div>
 
               {/* Sources */}
-              <div className="flex flex-wrap gap-3 mb-8">
+              <div className="flex flex-wrap gap-2 mb-8">
                 {[...new Set(mockIdea.signalSources.map((s) => s.platform))].map(
                   (platform) => {
                     const { icon: Icon, label } = platformIcons[platform];
                     return (
                       <span
                         key={platform}
-                        className="inline-flex items-center gap-2 px-3 py-1 bg-muted border-2 border-foreground text-sm font-medium"
+                        className="inline-flex items-center gap-2 px-3 py-1 bg-muted border border-border text-sm font-medium"
                       >
                         <Icon className="w-4 h-4" />
                         {label}
@@ -89,7 +89,7 @@ export function ProofSection() {
               {/* CTA */}
               <Link
                 href={`/ideas/${mockIdea.slug}`}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background font-bold hover:bg-foreground/90 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-colors"
               >
                 Read full brief
                 <ArrowRight className="w-4 h-4" />

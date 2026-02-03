@@ -53,28 +53,22 @@
 
 :root {
   --radius: 0.25rem;
-  /* Warm cream background */
+  /* Light theme (fallback) */
   --background: #FAF8F5;
   --foreground: #1D3557;
-  /* Cards slightly warmer */
   --card: #FFFFFF;
   --card-foreground: #1D3557;
   --popover: #FFFFFF;
   --popover-foreground: #1D3557;
-  /* Primary is the golden yellow from logo */
   --primary: #F9C74F;
   --primary-foreground: #1D3557;
-  /* Secondary is the light blue from logo */
   --secondary: #5BC0EB;
   --secondary-foreground: #FFFFFF;
-  /* Muted warm gray */
   --muted: #F0EDE8;
   --muted-foreground: #5D6A7E;
-  /* Accent is the cyan blue */
   --accent: #5BC0EB;
   --accent-foreground: #1D3557;
   --destructive: #E63946;
-  /* Navy borders */
   --border: #1D3557;
   --input: #1D3557;
   --ring: #F9C74F;
@@ -94,35 +88,42 @@
 }
 
 .dark {
-  --background: #0F1C2E;
-  --foreground: #FAF8F5;
-  --card: #1D3557;
-  --card-foreground: #FAF8F5;
-  --popover: #1D3557;
-  --popover-foreground: #FAF8F5;
+  /* Dark navy background from logo */
+  --background: #0B1929;
+  --foreground: #F0F4F8;
+  /* Slightly lighter navy for cards */
+  --card: #132238;
+  --card-foreground: #F0F4F8;
+  --popover: #132238;
+  --popover-foreground: #F0F4F8;
+  /* Golden yellow primary - pops on dark */
   --primary: #F9C74F;
-  --primary-foreground: #1D3557;
+  --primary-foreground: #0B1929;
+  /* Cyan blue secondary */
   --secondary: #5BC0EB;
-  --secondary-foreground: #0F1C2E;
-  --muted: #2D4A6F;
-  --muted-foreground: #A8B5C4;
+  --secondary-foreground: #0B1929;
+  /* Muted states */
+  --muted: #1D3557;
+  --muted-foreground: #8BA3BE;
+  /* Accent uses cyan */
   --accent: #5BC0EB;
-  --accent-foreground: #0F1C2E;
-  --destructive: #E63946;
-  --border: #5BC0EB;
-  --input: #2D4A6F;
+  --accent-foreground: #0B1929;
+  --destructive: #FF6B6B;
+  /* Borders use cyan for visibility */
+  --border: #2D4A6F;
+  --input: #1D3557;
   --ring: #F9C74F;
   --chart-1: #F9C74F;
   --chart-2: #5BC0EB;
-  --chart-3: #FAF8F5;
-  --chart-4: #E63946;
+  --chart-3: #F0F4F8;
+  --chart-4: #FF6B6B;
   --chart-5: #2A9D8F;
   --sidebar: #0A1421;
-  --sidebar-foreground: #FAF8F5;
+  --sidebar-foreground: #F0F4F8;
   --sidebar-primary: #F9C74F;
-  --sidebar-primary-foreground: #1D3557;
+  --sidebar-primary-foreground: #0B1929;
   --sidebar-accent: #5BC0EB;
-  --sidebar-accent-foreground: #0F1C2E;
+  --sidebar-accent-foreground: #0B1929;
   --sidebar-border: #2D4A6F;
   --sidebar-ring: #F9C74F;
 }
@@ -151,35 +152,44 @@
   font-family: 'DM Sans', sans-serif;
 }
 
-/* Organic rotation effects */
-.rotate-slight {
-  transform: rotate(-1deg);
-}
-
-.rotate-slight-right {
-  transform: rotate(1deg);
-}
-
 /* Bold border style */
 .border-bold {
   border-width: 3px;
 }
 
-/* Yellow highlight effect */
-.highlight-yellow {
-  background: linear-gradient(180deg, transparent 60%, #F9C74F 60%);
-  display: inline;
+/* Glow effects for dark theme */
+.glow-yellow {
+  box-shadow: 0 0 20px rgba(249, 199, 79, 0.3);
 }
 
-/* Noise texture overlay */
-.noise-overlay::before {
-  content: '';
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(91, 192, 235, 0.3);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #F9C74F 0%, #5BC0EB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Sponsor ad styling */
+.sponsor-ad {
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsor-ad::before {
+  content: 'Sponsored';
   position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: 1;
+  top: 8px;
+  right: 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted-foreground);
+  opacity: 0.7;
 }
 
 /* Stagger animation for lists */
@@ -205,3 +215,11 @@
 .animate-stagger > *:nth-child(4) { animation-delay: 0.4s; }
 .animate-stagger > *:nth-child(5) { animation-delay: 0.5s; }
 .animate-stagger > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Subtle grid pattern for backgrounds */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(91, 192, 235, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91, 192, 235, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}

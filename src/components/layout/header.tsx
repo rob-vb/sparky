@@ -18,17 +18,17 @@ const navLinks = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-background border-b-3 border-foreground">
+    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
         <Link href="/" className="flex items-center gap-3 group">
           <Image
             src="/logo.png"
             alt="Sparky mascot"
-            width={44}
-            height={44}
+            width={40}
+            height={40}
             className="transition-transform group-hover:scale-110"
           />
-          <span className="font-display text-2xl font-black tracking-tight">
+          <span className="font-display text-xl font-black tracking-tight">
             Sparky
           </span>
         </Link>
@@ -39,12 +39,12 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-medium text-foreground/70 hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+              className="font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               {link.label}
             </Link>
           ))}
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold border-2 border-foreground shadow-[4px_4px_0_0_#1D3557] hover:shadow-[2px_2px_0_0_#1D3557] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold glow-yellow">
             Subscribe
           </Button>
         </nav>
@@ -52,12 +52,12 @@ export function Header() {
         {/* Mobile Navigation */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon" className="border-2 border-foreground">
+            <Button variant="ghost" size="icon" className="border border-border">
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle menu</span>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="border-2 border-foreground">
+          <DropdownMenuContent align="end" className="border border-border bg-card">
             {navLinks.map((link) => (
               <DropdownMenuItem key={link.href} asChild>
                 <Link href={link.href} className="font-medium">{link.label}</Link>
